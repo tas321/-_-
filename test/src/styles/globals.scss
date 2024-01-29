@@ -1,0 +1,392 @@
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&family=Zen+Maru+Gothic&display=swap');
+
+    @mixin logo(){
+      z-index: 11;
+      width:160px;
+      height: auto;
+      background-color: transparent;
+    }
+
+    @mixin fade_h1(){
+      animation-name: fade-h1;
+      animation-duration: 2.5s;
+    }
+
+    @mixin fade-in() {
+      background-color: transparent;
+      animation-duration:1s;
+      animation-fill-mode:forwards;
+    }
+
+* {
+
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  background-repeat:no-repeat ;
+  list-style: none;
+  text-decoration: none;
+
+    //header
+
+    header {
+    width: 100%;
+    height: 110px;
+    display: block;
+
+    .header_logo{
+    @include logo();
+    position: fixed;
+    padding-top: 15px;
+    padding-left: 50px;
+  }
+}
+
+//footer
+footer {
+  background-color: #f9f9f9;
+  text-align: center;
+
+  .footer_logo{
+    display: block;
+    @include logo();
+    width: 140px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  small {
+    background-color: #eeeeee;
+  }
+}
+
+
+  //Swiper
+
+  body {
+    font-family: 'Noto Serif JP', serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-size: 15px;
+    color: #2D2B28;
+    background-color: rgb(255, 255, 255);
+
+
+    .swiper {
+      display: block;
+      z-index: 9;
+    }
+    
+    .swiper-wrapper {
+      transition-timing-function: linear!important;
+      }
+
+      .swiper-slide img {
+        display: block;
+        border-radius: 3%;
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+      }
+
+      //main
+
+      h1 {
+        text-align: center;
+        font-family: 'Noto Serif JP', serif;
+        margin-top: 100px;
+        margin-bottom: 150px;
+        font-size: 50px;
+      }
+
+      .top_h1 {
+        @include fade_h1();
+      }
+
+      @keyframes fade-h1{
+        0%{
+          opacity: 0;
+        }
+        100%{
+          opacity: 1;
+        }
+      }
+
+      //ペット紹介
+
+      .introduction_contents {
+        text-align: center;
+
+        h2 {
+          font-size: 30px;
+        }
+
+        h3 {
+          font-size: 21px;
+          margin-top: 60px;
+          margin-bottom: 40px;
+        }
+
+        p {
+          margin-top: 100px;
+          font-weight: bold;
+        }
+
+        //ic_image
+
+        .ic_image {
+          width: 100vw;
+        }
+
+        .ic_image_reus,.ic_image_thina {
+          display: flex;
+          justify-content: center;
+        }
+
+        img {
+          display: block;
+          object-fit: cover;
+          width: auto;
+          height: 40vh;
+          margin-left: 5vw;
+          margin-right: 5vw;
+          border-radius: 3%;
+        }
+
+        .animate__fadeInUp .ic_image1 {
+          margin-top: 10vh;
+        }
+
+        .animate__fadeInUp .ic_image2 {
+          margin-top: 40vh;
+          animation-delay: .6s;
+        }
+
+        .animate__fadeInUp .ic_image3 {
+          margin-top: 20vh;
+          animation-delay: .3s;
+        }
+
+        .animate__fadeInUp img {
+          animation-name:fade-up;
+          animation-duration:2s;
+          animation-fill-mode:forwards;
+          opacity:0;
+        }
+
+        @keyframes fade-up{
+          0% {
+            opacity: 0;
+          transform: translateY(200px);
+          }
+        
+          100% {
+            opacity: 1;
+          transform: translateY(0);
+          }
+        }
+
+         //PETを探すボタン
+
+         .ic_button {
+          text-align: right;
+          position: fixed;
+          right: 40px;
+          bottom: 60px;
+          z-index: 11;
+
+          button {
+            border: none;
+
+            a {
+              font-size: 15px;
+              font-weight: bold;
+              letter-spacing: 0.25em;
+              color: #002e5d;
+              border-radius: 10px;
+              padding:25px 40px;
+              background-color: beige;
+            }
+
+            a:hover {
+              opacity: .7;
+            }
+          }
+        }
+      }   
+
+      //ペットを飼う前に準備するもの
+
+        .Preparation_contents {
+          padding-left: 5vw;
+          padding-right: 5vw;
+
+            .sticky_wrap {
+              width: auto;
+              height: 50px;
+              position: sticky;
+              top: 0;
+              float: right;
+
+              img {
+                width: 17vw;
+                height: auto;
+                z-index: 9;
+                position: absolute;
+                top: 50%;
+                right: 50%;
+                border-radius: 10px;
+              }
+            }
+
+            .animate__parallax{
+
+              .pre_image1 {
+                animation-name:slide-in1;
+                @include fade-in();
+              }
+
+              .pre_image2 {
+                animation-name:slide-in2;
+                @include fade-in();
+              }
+            }
+
+            @keyframes slide-in1{
+              0% {
+                opacity: 0;
+              transform: translate(-200px,-200px);
+              }
+            
+              100% {
+                opacity: 1;
+              transform: translate(0);
+              transform: rotate(10deg);
+              }
+            }
+
+            @keyframes slide-in2{
+              0% {
+                opacity: 0;
+              transform: translate(200px,-200px);
+              }
+            
+              100% {
+                opacity: 1;
+              transform: translate(0);
+              transform: rotate(-10deg);
+              }
+            }
+
+          h2 {
+            color: #002e5d;
+            margin-top: 100px;
+            margin-bottom: 50px;
+         }
+
+          h3 {
+            color: #002e5d;
+            margin-bottom: 40px;
+          }
+
+          .innertext {
+            p {
+              line-height: 45px;
+              white-space: pre-wrap;
+            }
+          }
+        }
+  }
+
+  //ペットを探すページ
+
+  .pety_contents{
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-content: center;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    column-gap: 5vw;
+    row-gap: 5vh;
+    
+    .pety_item {
+      background-color: white;
+      padding: 20px 15px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid transparent;
+    
+      .pety_title {
+        background-color: transparent;
+        color: black;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      
+      img {
+        border-radius: 10px;
+        width: 95%;
+        height: auto;
+      }
+
+      li {
+        background-color: white;
+        color: black;
+        line-height: 30px;
+        font-size: 16px;
+        text-align: left;
+      }
+    }
+
+    .pety_item:hover {
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4), 0 0 50px rgba(128, 128, 128, 0.1) ;
+      transition: all .4s;
+    }
+  }
+
+  //ペットを探す詳細ページ
+
+  .pety_detail {
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-left: 25vh;
+    margin-right: 25vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+
+
+    .detail_item {
+      margin-right: 100px;
+
+      h2 {
+        -webkit-text-stroke: .1px #002e5d;
+        color: #dbf0ee;
+        font-size: 35px;
+        margin-bottom: 25px;
+      }
+
+      img {
+        border-radius: 10px;
+        width: 40vh;
+        height: auto;
+      }
+      }
+
+      ul {
+        margin-top: 55px;
+      }
+
+    li {
+      text-align: left;
+      color: rgb(97, 97, 97);
+      font-size: 20px;
+      line-height: 50px;
+    }
+  }
+}
